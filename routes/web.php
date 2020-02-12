@@ -29,4 +29,7 @@ Route::prefix('/test')->group(function (){
 });
 
 
-Route::prefix()
+Route::prefix('/Api')->group(function (){
+    Route::get('/info','Api\UserController@info');
+    Route::post('/reg','Api\UserController@reg');  //用户注册
+});
