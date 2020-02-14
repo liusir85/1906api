@@ -29,7 +29,7 @@ Route::prefix('/test')->group(function (){
     Route::get('/wx/curl1','TestController@curl1');
     Route::get('/wx/guzzle1','TestController@guzzle1');
 
-    Route::post('/wx/curl2','TestController@curl2');
+    Route::get('/wx/curl2','TestController@curl2');
 });
 
 
