@@ -25,7 +25,9 @@ Route::get('/phpinfo', function () {
 Route::prefix('/test')->group(function (){
     //测试redis   路由
     Route::get('/redis','TestController@testRedis');
-
+    Route::get('/wx/token','TestController@getAccessToken');
+    Route::get('/wx/curl1','TestController@curl1');
+    Route::get('/wx/guzzle1','TestController@guzzle1');
 });
 
 
