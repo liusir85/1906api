@@ -30,6 +30,14 @@ Route::prefix('/test')->group(function (){
     Route::get('/wx/guzzle1','TestController@guzzle1');
 
     Route::get('/wx/curl2','TestController@curl2');
+    Route::get('/wx/guzzle2','TestController@guzzle2');
+
+    Route::get('/wx/get1','TestController@get1');     //处理get接口请求
+    Route::post('/wx/post1','TestController@post1');     //处理post接口请求
+    Route::post('/wx/post2','TestController@post2');     //处理post接口请求
+    Route::post('/wx/post3','TestController@post3');     //处理post接口请求
+
+    Route::post('/wx/upload','TestController@testUpload');     //处理post上传文件
 });
 
 

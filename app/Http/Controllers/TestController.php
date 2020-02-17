@@ -138,4 +138,44 @@ class TestController extends Controller
         echo $data;
 //        dd($response);
     }
+
+    public function guzzle2(){
+    }
+
+
+
+
+    public function get1(){
+        echo "<pre>";print_r($_GET);echo "</pre>";
+    }
+
+    public function post1(){
+        echo '<hr>';
+        echo "我是api 开始";
+        echo "<pre>";print_r($_POST);echo "</pre>";
+        echo "<pre>";print_r($_FILES);echo "</pre>";
+        echo "我是api 结束";
+    }
+
+    public function post2(){
+        echo "<pre>";print_r($_POST);echo "</pre>";
+    }
+
+    //接收 json xml
+    public function post3(){
+        $data=file_get_contents("php://input"); //接收 json 或者xml 字符串
+        echo $data;
+        "<hr>";
+        $arr=json_decode($data,true);
+        echo  "<pre>";print_r($arr);echo "</pre>";
+
+    }
+
+
+    //接收post上传文件
+    public function testUpload(){
+        echo  "<pre>";print_r($_POST);echo "</pre>";
+        echo  "<pre>";print_r($_FILES);echo "</pre>";
+    }
+
 }
