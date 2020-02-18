@@ -38,10 +38,20 @@ Route::prefix('/test')->group(function (){
     Route::post('/wx/post3','TestController@post3');     //处理post接口请求
 
     Route::post('/wx/upload','TestController@testUpload');     //处理post上传文件
+    Route::get('/wx/geturl','TestController@getUrl');
+
+    Route::get('/redis/str1','TestController@RedisStr1');
+
+
 });
 
 
 Route::prefix('/Api')->group(function (){
     Route::get('/info','Api\UserController@info');
     Route::post('/reg','Api\UserController@reg');  //用户注册
+});
+
+
+Route::prefix('/goods')->group(function (){
+    Route::get('/shop','GoodsController@shop');
 });

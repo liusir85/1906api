@@ -178,4 +178,36 @@ class TestController extends Controller
         echo  "<pre>";print_r($_FILES);echo "</pre>";
     }
 
+    public function getUrl(){
+        //协议http https
+        $scheme=$_SERVER['REQUEST_SCHEME'];
+
+        //域名
+        $host=$_SERVER['HTTP_HOST'];
+
+        //请求urt
+        $uri=$_SERVER['REQUEST_URI'];
+
+        $url=$scheme . '://' . $host . $uri;
+
+        echo '当前URL ： '.$url;echo '<hr>';
+
+        echo "<pre>";print_r($_SERVER);echo "</pre>";
+    }
+
+    public function RedisStr1(){
+//        $key='name';
+//        $val='liusir123123';
+//
+//        Redis::set($key,$val);
+
+
+        $token='aasdasd';
+        $key='user_token';
+        //写入
+        Redis::set($key,$token);
+
+        //设置过期时间
+        Redis::expire($key,300);
+    }
 }
