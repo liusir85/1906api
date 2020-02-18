@@ -34,7 +34,7 @@ class GoodsController extends Controller
         }
         echo "<br>";
         echo "<br>";
-
+die;
 
 
 
