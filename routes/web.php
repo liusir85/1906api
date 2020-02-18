@@ -42,7 +42,7 @@ Route::prefix('/test')->group(function (){
 
     Route::get('/redis/str1','TestController@RedisStr1');
 
-
+    Route::get('/redis/count1','TestController@count1');
 });
 
 

@@ -32,9 +32,9 @@ class GoodsController extends Controller
             Redis::expire($goods_key,5);
             echo "<pre>";print_r($arr);echo "</pre>";
         }
-        echo "<br>";
-        echo "<br>";
-die;
+
+        die;
+
 
 
 
