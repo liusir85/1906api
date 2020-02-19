@@ -22,7 +22,7 @@ Route::get('/phpinfo', function () {
 //Route::get('/test/redis','TestController@testRedis');
 //////////////////////////
 
-Route::prefix('/test')->group(function (){
+Route::prefix('/test')->middleware('api.filter')->group(function (){
     //测试redis   路由
     Route::get('/redis','TestController@testRedis');
     Route::get('/wx/token','TestController@getAccessToken');
