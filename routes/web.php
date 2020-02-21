@@ -22,7 +22,7 @@ Route::get('/phpinfo', function () {
 //Route::get('/test/redis','TestController@testRedis');
 //////////////////////////
 
-Route::prefix('/test')->middleware('api.filter')->group(function (){
+Route::prefix('/test')->group(function (){
     //测试redis   路由
     Route::get('/redis','TestController@testRedis');
     Route::get('/wx/token','TestController@getAccessToken');
@@ -42,14 +42,18 @@ Route::prefix('/test')->middleware('api.filter')->group(function (){
 
     Route::get('/redis/str1','TestController@RedisStr1');
     Route::get('/redis/count1','TestController@count1');
-    Route::get('/api2','TestController@api2');
-    Route::get('/api3','TestController@api3');
+    Route::get('/api2','TestController@api2')->middleware('api.filter');
+    Route::get('/api3','TestController@api3')->middleware('api.filter');
+    Route::get('/md5test1','TestController@md5Test1');
+    Route::get('/md5Test2','TestController@md5Test2');
 });
 
 
 Route::prefix('/Api')->group(function (){
     Route::get('/info','Api\UserController@info');
     Route::post('/reg','Api\UserController@reg');  //用户注册
+
+    Route::get('/weather','Api\UserController@weather');
 });
 
 

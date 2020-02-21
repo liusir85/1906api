@@ -38,4 +38,19 @@ class UserController extends Controller
         $id=UserModel::insertGetId($user_info);
         echo "用户ID：".$id;
     }
+
+    public function weather(){
+        if(empty($_GET['location'])){
+            echo "请输入城市名称";die;
+        }
+
+        $location=$_GET['location'];   //客户端传递的参数
+        //请求第三方接口  天气接口
+        $url='https://free-api.heweather.net/s6/weather/now?location='.$location.'&key=626278c5cabf4f09835d91daec5c91e0';
+        $data=file_get_contents($url);
+        $arr=json_decode($data,true);
+        echo "<pre>";print_r($arr);echo "</pre>";
+
+        return $data;
+    }
 }

@@ -273,4 +273,30 @@ class TestController extends Controller
         $key='count:uri:'.$u.':'.$md5_uri;
         echo $key;
     }
+
+    public function md5Test1(){
+        $key='uzi';
+        $data=$_GET['data'];
+        echo $data; echo "<br>";
+
+        $number=md5($data.$key);
+        echo "签名".$number;
+    }
+
+    public function md5Test2(){
+        $key='uzi';
+        $data=$_GET['data']; //接收数据
+        $number=$_GET['number']; //接收签名
+
+        //验证签名 与发送端的签名相同规则
+        $number2=md5($data.$key);
+        echo "接收的签名".$number2;echo "<br>";
+
+        //与接收到的签名对比判断
+        if($number2 == $number){
+            echo "验证签名通过";
+        }else{
+            echo "验证签名失败";
+        }
+    }
 }
