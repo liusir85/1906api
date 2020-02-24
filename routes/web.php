@@ -46,6 +46,9 @@ Route::prefix('/test')->group(function (){
     Route::get('/api3','TestController@api3')->middleware('api.filter');
     Route::get('/md5test1','TestController@md5Test1');
     Route::get('/md5Test2','TestController@md5Test2');
+
+    Route::get('/decrypt','TestController@decrypt');
+    Route::get('/decrypt1','TestController@decrypt1');
 });
 
 

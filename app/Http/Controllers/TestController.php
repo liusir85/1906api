@@ -299,4 +299,34 @@ class TestController extends Controller
             echo "验证签名失败";
         }
     }
+
+    public function decrypt(){
+        echo '123';
+    }
+
+
+
+    public function decrypt1(){
+//        $method_arr=openssl_get_cipher_methods();
+//        echo "<pre>";print_r($method_arr);echo "</pre>";
+//        die;
+//        $data='hello'; //要加密的数据
+//        $method='';  //要的加算法
+
+        $key='666';
+        $method='aes-128-cbc';   //加算法
+        $iv='abcdefg1234zxcdf';  //必须为16个
+        echo "<hr>";
+        echo "接受到数据:";echo "<br>";
+        echo "<pre>";print_r($_GET);echo "</pre>";
+        $data=$_GET['data'];
+
+        $enc_str=base64_decode($data);
+
+        //解密
+        $dec_data=openssl_decrypt($enc_str,$method,$key,OPENSSL_RAW_DATA,$iv);
+        echo "解密数据：";echo "<br>";
+        var_dump($dec_data);
+    }
+
 }
