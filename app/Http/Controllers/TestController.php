@@ -329,4 +329,32 @@ class TestController extends Controller
         var_dump($dec_data);
     }
 
+   public function res1Decrypt1(){
+        echo "<hr>";
+        echo "API";echo "<br>";
+        echo "<pre>";print_r($_GET);echo "</pre>";
+
+        //解密数据
+       $enc_data=base64_decode($_GET['data']);
+
+       $priv=file_get_contents(storage_path('keys/priv_a.key'));
+       openssl_private_decrypt($enc_data,$dec_data,$priv);
+       echo "解密数据";echo "<br>";
+       var_dump($dec_data);
+
+       //响应
+       $str="that's all right";
+       $key=file_get_contents(storage_path(keys/pub_b.key));
+       openssl_public_encrypt($str,$enc_str,$key);
+       $data=[
+           'error'=>0,
+           'msg'=>'ok',
+           'data'=>base64_encode($enc_str),
+       ];
+       return$data;
+   }
+
+
+
+
 }

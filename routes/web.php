@@ -51,6 +51,7 @@ Route::prefix('/test')->group(function (){
     Route::get('/decrypt1','TestController@decrypt1');
 });
 
+Route::get('/res1/decrypt1','TestController@res1Decrypt1');
 
 Route::prefix('/Api')->group(function (){
     Route::get('/info','Api\UserController@info');
@@ -63,3 +64,5 @@ Route::prefix('/Api')->group(function (){
 Route::prefix('/goods')->group(function (){
     Route::get('/shop','GoodsController@shop');
 });
+
+
